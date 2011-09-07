@@ -1,0 +1,1157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{07FC88ED-ACE1-429D-A5FF-D43976C0D5E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SubSimProcessorLanguage</RootNamespace>
+    <AssemblyName>SubSimProcessorLanguage</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\SubSimNLDemo.XML\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>C:\SS-RICS\SS-RICS SRC\Release\SubSimProcessorLanguage.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\SubSimNLDemo.XML\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="addnulls, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\PennNLP\addnulls\addnulls.dll</HintPath>
+    </Reference>
+    <Reference Include="Brain, Version=1.1.9.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\SS-RICS\SS-RICS SRC\Release\Brain.dll</HintPath>
+    </Reference>
+    <Reference Include="dbparser, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\PennNLP\dbparser\dbparser.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=0.46.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=0.46.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IronPython 2.6\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IronPython 2.6\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Lithium, Version=3.3.2529.39670, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Lithium.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IronPython 2.6\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IronPython 2.6\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\IronPython 2.6\Microsoft.Scripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenNLP, Version=1.0.4253.20523, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\SS-RICS\SharpNLP-1.0.2529-Src\OpenNLP\OpenNLP\bin\Release\OpenNLP.dll</HintPath>
+    </Reference>
+    <Reference Include="SS-RICSRobot, Version=1.0.4161.25036, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GoalEditor.cs" />
+    <Compile Include="NLInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NLInputForm.Designer.cs">
+      <DependentUpon>NLInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoalSemantics.cs" />
+    <Compile Include="ParseViewer.cs" />
+    <Compile Include="SemanticsInterface.cs" />
+    <Compile Include="SubSimProcessorNLInput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NLInputForm.resx">
+      <DependentUpon>NLInputForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\ikvm-0.46.0.1\bin-x64\README" />
+    <None Include="lib\ikvm-0.46.0.1\bin-x86\README" />
+    <None Include="lib\ikvm-0.46.0.1\LICENSE" />
+    <None Include="lib\ikvm-0.46.0.1\THIRD_PARTY_README" />
+    <None Include="lib\ikvm-0.46.0.1\TRADEMARK" />
+    <None Include="lib\IronPython 2.6\Lib\abc.py" />
+    <None Include="lib\IronPython 2.6\Lib\aifc.py" />
+    <None Include="lib\IronPython 2.6\Lib\anydbm.py" />
+    <None Include="lib\IronPython 2.6\Lib\asynchat.py" />
+    <None Include="lib\IronPython 2.6\Lib\asyncore.py" />
+    <None Include="lib\IronPython 2.6\Lib\atexit.py" />
+    <None Include="lib\IronPython 2.6\Lib\audiodev.py" />
+    <None Include="lib\IronPython 2.6\Lib\base64.py" />
+    <None Include="lib\IronPython 2.6\Lib\BaseHTTPServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\Bastion.py" />
+    <None Include="lib\IronPython 2.6\Lib\bdb.py" />
+    <None Include="lib\IronPython 2.6\Lib\binhex.py" />
+    <None Include="lib\IronPython 2.6\Lib\bisect.py" />
+    <None Include="lib\IronPython 2.6\Lib\calendar.py" />
+    <None Include="lib\IronPython 2.6\Lib\cgi.py" />
+    <None Include="lib\IronPython 2.6\Lib\CGIHTTPServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\cgitb.py" />
+    <None Include="lib\IronPython 2.6\Lib\chunk.py" />
+    <None Include="lib\IronPython 2.6\Lib\cmd.py" />
+    <None Include="lib\IronPython 2.6\Lib\code.py" />
+    <None Include="lib\IronPython 2.6\Lib\codecs.py" />
+    <None Include="lib\IronPython 2.6\Lib\codeop.py" />
+    <None Include="lib\IronPython 2.6\Lib\collections.py" />
+    <None Include="lib\IronPython 2.6\Lib\colorsys.py" />
+    <None Include="lib\IronPython 2.6\Lib\commands.py" />
+    <None Include="lib\IronPython 2.6\Lib\compileall.py" />
+    <None Include="lib\IronPython 2.6\Lib\ConfigParser.py" />
+    <None Include="lib\IronPython 2.6\Lib\contextlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\Cookie.py" />
+    <None Include="lib\IronPython 2.6\Lib\cookielib.py" />
+    <None Include="lib\IronPython 2.6\Lib\copy.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\macholib\dyld.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\macholib\dylib.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\macholib\framework.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\macholib\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\runtests.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_anon.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_arrays.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_array_in_pointer.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_as_parameter.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_bitfields.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_buffers.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_byteswap.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_callbacks.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_cast.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_cfuncs.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_checkretval.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_delattr.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_errcheck.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_errno.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_find.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_frombuffer.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_funcptr.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_functions.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_incomplete.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_init.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_integers.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_internals.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_keeprefs.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_libc.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_loading.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_macholib.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_memfunctions.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_numbers.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_objects.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_parameters.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_pep3118.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_pickling.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_pointers.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_prototypes.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_python_api.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_random_things.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_refcounts.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_repr.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_returnfuncptrs.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_simplesubclasses.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_sizes.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_slicing.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_stringptr.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_strings.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_structures.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_struct_fields.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_unaligned_structures.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_unicode.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_values.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_varsize_struct.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\test_win32.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\test\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\util.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\wintypes.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\_endian.py" />
+    <None Include="lib\IronPython 2.6\Lib\ctypes\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\decimal.py" />
+    <None Include="lib\IronPython 2.6\Lib\difflib.py" />
+    <None Include="lib\IronPython 2.6\Lib\dircache.py" />
+    <None Include="lib\IronPython 2.6\Lib\dis.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\archive_util.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\bcppcompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\ccompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\cmd.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\bdist.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\bdist_dumb.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\bdist_rpm.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\bdist_wininst.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\build.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\build_clib.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\build_ext.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\build_py.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\build_scripts.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\clean.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\config.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install_data.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install_egg_info.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install_headers.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install_lib.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\install_scripts.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\register.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\sdist.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\upload.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\command\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\config.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\core.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\cygwinccompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\debug.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\dep_util.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\dir_util.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\dist.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\emxccompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\errors.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\extension.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\fancy_getopt.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\filelist.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\file_util.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\log.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\msvccompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\mwerkscompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\spawn.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\sysconfig.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\support.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_build_py.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_build_scripts.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_config.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_install.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_install_scripts.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_upload.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\test_versionpredicate.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\tests\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\text_file.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\unixccompiler.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\util.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\version.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\versionpredicate.py" />
+    <None Include="lib\IronPython 2.6\Lib\distutils\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\doctest.py" />
+    <None Include="lib\IronPython 2.6\Lib\DocXMLRPCServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\dumbdbm.py" />
+    <None Include="lib\IronPython 2.6\Lib\dummy_thread.py" />
+    <None Include="lib\IronPython 2.6\Lib\dummy_threading.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\base64mime.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\charset.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\encoders.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\errors.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\feedparser.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\generator.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\header.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\iterators.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\message.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\application.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\audio.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\base.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\image.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\message.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\multipart.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\nonmultipart.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\text.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\mime\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\parser.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\quoprimime.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\test\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\utils.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\_parseaddr.py" />
+    <None Include="lib\IronPython 2.6\Lib\email\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\aliases.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\ascii.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\base64_codec.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\charmap.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp037.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1006.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1026.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1140.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1250.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1251.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1252.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1253.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1254.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1255.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1256.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1257.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp1258.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp424.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp437.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp500.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp737.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp775.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp850.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp852.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp855.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp856.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp857.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp860.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp861.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp862.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp863.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp864.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp865.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp866.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp869.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp874.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\cp875.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\hex_codec.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\hp_roman8.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_1.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_10.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_11.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_13.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_14.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_15.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_16.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_2.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_3.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_4.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_5.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_6.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_7.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_8.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\iso8859_9.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\koi8_r.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\koi8_u.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\latin_1.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_arabic.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_centeuro.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_croatian.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_cyrillic.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_farsi.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_greek.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_iceland.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_latin2.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_roman.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_romanian.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mac_turkish.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\mbcs.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\palmos.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\ptcp154.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\punycode.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\quopri_codec.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\raw_unicode_escape.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\rot_13.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\string_escape.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\tis_620.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\undefined.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\unicode_escape.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\unicode_internal.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_16.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_16_be.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_16_le.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_32.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_32_le.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_7.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_8.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\utf_8_sig.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\uu_codec.py" />
+    <None Include="lib\IronPython 2.6\Lib\encodings\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\filecmp.py" />
+    <None Include="lib\IronPython 2.6\Lib\fileinput.py" />
+    <None Include="lib\IronPython 2.6\Lib\fnmatch.py" />
+    <None Include="lib\IronPython 2.6\Lib\formatter.py" />
+    <None Include="lib\IronPython 2.6\Lib\fpformat.py" />
+    <None Include="lib\IronPython 2.6\Lib\fractions.py" />
+    <None Include="lib\IronPython 2.6\Lib\ftplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\functools.py" />
+    <None Include="lib\IronPython 2.6\Lib\genericpath.py" />
+    <None Include="lib\IronPython 2.6\Lib\getopt.py" />
+    <None Include="lib\IronPython 2.6\Lib\getpass.py" />
+    <None Include="lib\IronPython 2.6\Lib\gettext.py" />
+    <None Include="lib\IronPython 2.6\Lib\glob.py" />
+    <None Include="lib\IronPython 2.6\Lib\hashlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\heapq.py" />
+    <None Include="lib\IronPython 2.6\Lib\hmac.py" />
+    <None Include="lib\IronPython 2.6\Lib\htmlentitydefs.py" />
+    <None Include="lib\IronPython 2.6\Lib\htmllib.py" />
+    <None Include="lib\IronPython 2.6\Lib\HTMLParser.py" />
+    <None Include="lib\IronPython 2.6\Lib\httplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\AutoExpand.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\Delegator.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\HyperParser.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\Icons\idle.icns" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\idle.bat" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\idle.pyw" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\idlever.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\PyParse.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\RemoteObjectBrowser.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\rpc.py" />
+    <None Include="lib\IronPython 2.6\Lib\idlelib\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\ihooks.py" />
+    <None Include="lib\IronPython 2.6\Lib\imaplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\imghdr.py" />
+    <None Include="lib\IronPython 2.6\Lib\imputil.py" />
+    <None Include="lib\IronPython 2.6\Lib\inspect.py" />
+    <None Include="lib\IronPython 2.6\Lib\io.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\decoder.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\encoder.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\scanner.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_decode.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_default.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_dump.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_encode_basestring_ascii.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_fail.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_float.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_indent.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_pass1.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_pass2.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_pass3.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_recursion.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_scanstring.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_separators.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_speedups.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\test_unicode.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tests\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\tool.py" />
+    <None Include="lib\IronPython 2.6\Lib\json\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\keyword.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Canvas.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Dialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\FileDialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\FixTk.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\ScrolledText.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\SimpleDialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Tix.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkColorChooser.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkCommonDialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Tkconstants.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Tkdnd.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkFileDialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkFont.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\Tkinter.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkMessageBox.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\tkSimpleDialog.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib-tk\turtle.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\fixes\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\Grammar2.6.1.release.0.pickle" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pgen2\conv.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pgen2\literals.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pgen2\token.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pgen2\tokenize.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pgen2\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\pytree.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\bad_order.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\fix_explicit.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\fix_first.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\fix_last.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\fix_parrot.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\fix_preorder.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\myfixes\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\no_fixer_cls.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\fixers\parrot_example.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\py2_test_grammar.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\data\py3_test_grammar.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\support.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\tests\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\lib2to3\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\linecache.py" />
+    <None Include="lib\IronPython 2.6\Lib\locale.py" />
+    <None Include="lib\IronPython 2.6\Lib\logging\config.py" />
+    <None Include="lib\IronPython 2.6\Lib\logging\handlers.py" />
+    <None Include="lib\IronPython 2.6\Lib\logging\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\macpath.py" />
+    <None Include="lib\IronPython 2.6\Lib\macurl2path.py" />
+    <None Include="lib\IronPython 2.6\Lib\mailbox.py" />
+    <None Include="lib\IronPython 2.6\Lib\mailcap.py" />
+    <None Include="lib\IronPython 2.6\Lib\markupbase.py" />
+    <None Include="lib\IronPython 2.6\Lib\md5.py" />
+    <None Include="lib\IronPython 2.6\Lib\mhlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\mimetools.py" />
+    <None Include="lib\IronPython 2.6\Lib\mimetypes.py" />
+    <None Include="lib\IronPython 2.6\Lib\MimeWriter.py" />
+    <None Include="lib\IronPython 2.6\Lib\mimify.py" />
+    <None Include="lib\IronPython 2.6\Lib\modulefinder.py" />
+    <None Include="lib\IronPython 2.6\Lib\multifile.py" />
+    <None Include="lib\IronPython 2.6\Lib\mutex.py" />
+    <None Include="lib\IronPython 2.6\Lib\netrc.py" />
+    <None Include="lib\IronPython 2.6\Lib\new.py" />
+    <None Include="lib\IronPython 2.6\Lib\nntplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\ntpath.py" />
+    <None Include="lib\IronPython 2.6\Lib\nturl2path.py" />
+    <None Include="lib\IronPython 2.6\Lib\numbers.py" />
+    <None Include="lib\IronPython 2.6\Lib\opcode.py" />
+    <None Include="lib\IronPython 2.6\Lib\optparse.py" />
+    <None Include="lib\IronPython 2.6\Lib\os.py" />
+    <None Include="lib\IronPython 2.6\Lib\os2emxpath.py" />
+    <None Include="lib\IronPython 2.6\Lib\pdb.py" />
+    <None Include="lib\IronPython 2.6\Lib\pickle.py" />
+    <None Include="lib\IronPython 2.6\Lib\pickletools.py" />
+    <None Include="lib\IronPython 2.6\Lib\pipes.py" />
+    <None Include="lib\IronPython 2.6\Lib\pkgutil.py" />
+    <None Include="lib\IronPython 2.6\Lib\platform.py" />
+    <None Include="lib\IronPython 2.6\Lib\plistlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\popen2.py" />
+    <None Include="lib\IronPython 2.6\Lib\poplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\posixfile.py" />
+    <None Include="lib\IronPython 2.6\Lib\posixpath.py" />
+    <None Include="lib\IronPython 2.6\Lib\pprint.py" />
+    <None Include="lib\IronPython 2.6\Lib\profile.py" />
+    <None Include="lib\IronPython 2.6\Lib\pstats.py" />
+    <None Include="lib\IronPython 2.6\Lib\pyclbr.py" />
+    <None Include="lib\IronPython 2.6\Lib\pydoc.py" />
+    <None Include="lib\IronPython 2.6\Lib\pydoc_topics.py" />
+    <None Include="lib\IronPython 2.6\Lib\py_compile.py" />
+    <None Include="lib\IronPython 2.6\Lib\Queue.py" />
+    <None Include="lib\IronPython 2.6\Lib\quopri.py" />
+    <None Include="lib\IronPython 2.6\Lib\random.py" />
+    <None Include="lib\IronPython 2.6\Lib\repr.py" />
+    <None Include="lib\IronPython 2.6\Lib\rexec.py" />
+    <None Include="lib\IronPython 2.6\Lib\rfc822.py" />
+    <None Include="lib\IronPython 2.6\Lib\rlcompleter.py" />
+    <None Include="lib\IronPython 2.6\Lib\robotparser.py" />
+    <None Include="lib\IronPython 2.6\Lib\runpy.py" />
+    <None Include="lib\IronPython 2.6\Lib\sched.py" />
+    <None Include="lib\IronPython 2.6\Lib\sets.py" />
+    <None Include="lib\IronPython 2.6\Lib\sgmllib.py" />
+    <None Include="lib\IronPython 2.6\Lib\sha.py" />
+    <None Include="lib\IronPython 2.6\Lib\shelve.py" />
+    <None Include="lib\IronPython 2.6\Lib\shlex.py" />
+    <None Include="lib\IronPython 2.6\Lib\shutil.py" />
+    <None Include="lib\IronPython 2.6\Lib\SimpleHTTPServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\SimpleXMLRPCServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\site.py" />
+    <None Include="lib\IronPython 2.6\Lib\smtpd.py" />
+    <None Include="lib\IronPython 2.6\Lib\smtplib.py" />
+    <None Include="lib\IronPython 2.6\Lib\sndhdr.py" />
+    <None Include="lib\IronPython 2.6\Lib\SocketServer.py" />
+    <None Include="lib\IronPython 2.6\Lib\sre_compile.py" />
+    <None Include="lib\IronPython 2.6\Lib\sre_constants.py" />
+    <None Include="lib\IronPython 2.6\Lib\sre_parse.py" />
+    <None Include="lib\IronPython 2.6\Lib\ssl.py" />
+    <None Include="lib\IronPython 2.6\Lib\stat.py" />
+    <None Include="lib\IronPython 2.6\Lib\statvfs.py" />
+    <None Include="lib\IronPython 2.6\Lib\string.py" />
+    <None Include="lib\IronPython 2.6\Lib\StringIO.py" />
+    <None Include="lib\IronPython 2.6\Lib\stringold.py" />
+    <None Include="lib\IronPython 2.6\Lib\struct.py" />
+    <None Include="lib\IronPython 2.6\Lib\sunau.py" />
+    <None Include="lib\IronPython 2.6\Lib\sunaudio.py" />
+    <None Include="lib\IronPython 2.6\Lib\symbol.py" />
+    <None Include="lib\IronPython 2.6\Lib\tabnanny.py" />
+    <None Include="lib\IronPython 2.6\Lib\tarfile.py" />
+    <None Include="lib\IronPython 2.6\Lib\telnetlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\tempfile.py" />
+    <None Include="lib\IronPython 2.6\Lib\textwrap.py" />
+    <None Include="lib\IronPython 2.6\Lib\this.py" />
+    <None Include="lib\IronPython 2.6\Lib\threading.py" />
+    <None Include="lib\IronPython 2.6\Lib\timeit.py" />
+    <None Include="lib\IronPython 2.6\Lib\toaiff.py" />
+    <None Include="lib\IronPython 2.6\Lib\token.py" />
+    <None Include="lib\IronPython 2.6\Lib\tokenize.py" />
+    <None Include="lib\IronPython 2.6\Lib\trace.py" />
+    <None Include="lib\IronPython 2.6\Lib\traceback.py" />
+    <None Include="lib\IronPython 2.6\Lib\types.py" />
+    <None Include="lib\IronPython 2.6\Lib\unittest.py" />
+    <None Include="lib\IronPython 2.6\Lib\urllib.py" />
+    <None Include="lib\IronPython 2.6\Lib\urllib2.py" />
+    <None Include="lib\IronPython 2.6\Lib\urlparse.py" />
+    <None Include="lib\IronPython 2.6\Lib\user.py" />
+    <None Include="lib\IronPython 2.6\Lib\UserDict.py" />
+    <None Include="lib\IronPython 2.6\Lib\UserList.py" />
+    <None Include="lib\IronPython 2.6\Lib\UserString.py" />
+    <None Include="lib\IronPython 2.6\Lib\uu.py" />
+    <None Include="lib\IronPython 2.6\Lib\uuid.py" />
+    <None Include="lib\IronPython 2.6\Lib\warnings.py" />
+    <None Include="lib\IronPython 2.6\Lib\wave.py" />
+    <None Include="lib\IronPython 2.6\Lib\weakref.py" />
+    <None Include="lib\IronPython 2.6\Lib\whichdb.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\handlers.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\headers.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\simple_server.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\util.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\validate.py" />
+    <None Include="lib\IronPython 2.6\Lib\wsgiref\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\xdrlib.py" />
+    <None Include="lib\IronPython 2.6\Lib\xmllib.py" />
+    <None Include="lib\IronPython 2.6\Lib\xmlrpclib.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\domreg.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\minicompat.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\minidom.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\NodeFilter.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\pulldom.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\xmlbuilder.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\dom\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\etree\ElementInclude.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\etree\ElementPath.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\etree\ElementTree.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\etree\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\parsers\expat.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\parsers\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\sax\handler.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\sax\saxutils.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\sax\xmlreader.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\sax\_exceptions.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\sax\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\xml\__init__.py" />
+    <None Include="lib\IronPython 2.6\Lib\zipfile.py" />
+    <None Include="lib\IronPython 2.6\Lib\_abcoll.py" />
+    <None Include="lib\IronPython 2.6\Lib\_LWPCookieJar.py" />
+    <None Include="lib\IronPython 2.6\Lib\_MozillaCookieJar.py" />
+    <None Include="lib\IronPython 2.6\Lib\_strptime.py" />
+    <None Include="lib\IronPython 2.6\Lib\_threading_local.py" />
+    <None Include="lib\IronPython 2.6\Lib\__future__.py" />
+    <None Include="lib\IronPython 2.6\Lib\__phello__.foo.py" />
+    <None Include="lib\IronPython 2.6\License.rtf" />
+    <None Include="lib\IronPython 2.6\Tools\Scripts\pyc.py" />
+    <None Include="lib\PennNLP\addnulls\ante_tmp.classifier" />
+    <None Include="lib\PennNLP\addnulls\nc.classifier" />
+    <None Include="lib\PennNLP\addnulls\noante.classifier" />
+    <None Include="lib\PennNLP\addnulls\nptrace.classifier" />
+    <None Include="lib\PennNLP\addnulls\nptrace_ante.classifier" />
+    <None Include="lib\PennNLP\addnulls\pro_ante_perceptron.classifier" />
+    <None Include="lib\PennNLP\addnulls\sbar.classifier" />
+    <None Include="lib\PennNLP\addnulls\sbar_discern.classifier" />
+    <None Include="lib\PennNLP\addnulls\tmp.classifier" />
+    <None Include="lib\PennNLP\addnulls\verb_data" />
+    <None Include="lib\PennNLP\addnulls\whtrace.classifier" />
+    <None Include="lib\PennNLP\addnulls\whtrace_perceptron.classifier" />
+    <None Include="lib\PennNLP\addnulls\whxp.classifier" />
+    <None Include="lib\PennNLP\addnulls\whxpdiscern.classifier" />
+    <None Include="lib\PennNLP\dbparser\eatb3.properties" />
+    <None Include="lib\PennNLP\dbparser\wsjall.obj" />
+    <None Include="lib\PennNLP\nlpy\commproxy.py" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\Automaton.py" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\basic_sim.aut" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\basic_sim.ltl" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\basic_sim.smv" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\find_user.aut" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\find_user.ltl" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\find_user.smv" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\arbiter2.aut" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\arbiter2.smv" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\arbiter2.spc" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneGame%24RawState.class" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneGame.class" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneMain.class" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneParser.class" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\JTLV\JTLV_INSTRUCTIONS" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\LTLGeneration.py" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\makeaut.sh" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\scen1.aut" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\scen1.ltl" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\scen1.smv" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\small_sim.aut" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\small_sim.ltl" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\small_sim.smv" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\testaut_bombhostage.py" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\testaut_user.py" />
+    <None Include="lib\PennNLP\nlpy\LTLBroom\__init__.py" />
+    <None Include="lib\PennNLP\nlpy\makeaut.sh" />
+    <None Include="lib\PennNLP\nlpy\nlmaster.py" />
+    <None Include="lib\PennNLP\nlpy\nlproxy.py" />
+    <None Include="lib\PennNLP\nlpy\parser_demo.py" />
+    <None Include="lib\PennNLP\nlpy\PennPipeline.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Demo.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Frames.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\KeywordParsing.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Knowledge.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\LanguageTester.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Parsing-NLTK.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Parsing.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Structures.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Tree.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\vn_class-3.dtd" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\vn_schema-3.xsd" />
+    <None Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\word_sense_mapping.pkl" />
+    <None Include="lib\PennNLP\nlpy\Semantics\wntools.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\wordnet.py" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\adj.exc" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\adv.exc" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\cntlist" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\cntlist.rev" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\data.adj" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\data.adv" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\data.noun" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\data.verb" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\frames.vrb" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\index.adj" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\index.adv" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\index.noun" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\index.sense" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\index.verb" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\lexnames" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\Makefile" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\noun.exc" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\sentidx.vrb" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\sents.vrb" />
+    <None Include="lib\PennNLP\nlpy\Semantics\WordNet\dict\verb.exc" />
+    <None Include="lib\PennNLP\nlpy\Semantics\__init__.py" />
+    <None Include="lib\PennNLP\nlpy\statemanager.py" />
+    <None Include="lib\PennNLP\nlpy\teststatemanager.py" />
+    <None Include="semantics_interface.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\ikvm-0.46.0.1\bin-x64\ikvm-native.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin-x64\JVM.DLL" />
+    <Content Include="lib\ikvm-0.46.0.1\bin-x86\ikvm-native.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin-x86\JVM.DLL" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.AWT.WinForms.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\ikvm.exe" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Beans.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Charsets.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Corba.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Core.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Jdbc.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Management.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Media.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Misc.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Naming.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Remoting.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Security.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.SwingAWT.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Text.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Tools.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Util.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.API.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.Bind.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.Crypto.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.Parse.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.Transform.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.WebServices.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.XML.XPath.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.Reflection.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.Runtime.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\IKVM.Runtime.JNI.dll" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\ikvmc.exe" />
+    <Content Include="lib\ikvm-0.46.0.1\bin\ikvmstub.exe" />
+    <Content Include="lib\ikvm-0.46.0.1\lib\ikvm-api.jar" />
+    <Content Include="lib\IronPython 2.6\ipy.exe" />
+    <Content Include="lib\IronPython 2.6\ipyw.exe" />
+    <Content Include="lib\IronPython 2.6\IronPython.dll" />
+    <Content Include="lib\IronPython 2.6\IronPython.Modules.dll" />
+    <Content Include="lib\IronPython 2.6\IronPython.Modules.XML" />
+    <Content Include="lib\IronPython 2.6\IronPython.XML" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-6.0.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-7.1.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-8.0.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-8_d.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-9.0-amd64.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\distutils\command\wininst-9.0.exe" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\audiotest.au" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_01.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_02.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_03.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_04.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_05.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_06.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_07.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_08.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_09.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_10.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_11.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_12.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_12a.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_13.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_14.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_15.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_16.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_17.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_18.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_19.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_20.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_21.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_22.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_23.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_24.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_25.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_26.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_27.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_28.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_29.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_30.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_31.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_32.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_33.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_34.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_35.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_36.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_37.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_38.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_39.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_40.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_41.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_42.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_43.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\msg_44.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\email\test\data\PyBanner048.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\config-extensions.def" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\config-highlight.def" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\config-keys.def" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\config-main.def" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\CREDITS.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\extend.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\help.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\HISTORY.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\folder.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\minusnode.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\openfolder.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\plusnode.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\python.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\Icons\tk.gif" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\NEWS.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\README.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\idlelib\TODO.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\lib2to3\Grammar.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\lib2to3\PatternGrammar.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\LICENSE.txt" />
+    <Content Include="lib\IronPython 2.6\Lib\site-packages\README.txt" />
+    <Content Include="lib\IronPython 2.6\License.html" />
+    <Content Include="lib\IronPython 2.6\Microsoft.Dynamic.dll" />
+    <Content Include="lib\IronPython 2.6\Microsoft.Scripting.Core.dll" />
+    <Content Include="lib\IronPython 2.6\Microsoft.Scripting.Debugging.dll" />
+    <Content Include="lib\IronPython 2.6\Microsoft.Scripting.dll" />
+    <Content Include="lib\IronPython 2.6\Microsoft.Scripting.ExtensionAttribute.dll" />
+    <Content Include="lib\IronPython 2.6\Readme.html" />
+    <Content Include="lib\Lithium.dll" />
+    <Content Include="lib\OpenNLP.dll" />
+    <Content Include="lib\PennNLP\addnulls\addnulls.dll" />
+    <Content Include="lib\PennNLP\addnulls\addnulls.jar" />
+    <Content Include="lib\PennNLP\dbparser\dbparser-ext.jar" />
+    <Content Include="lib\PennNLP\dbparser\dbparser.dll" />
+    <Content Include="lib\PennNLP\dbparser\dbparser.jar" />
+    <Content Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneGame.java" />
+    <Content Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneMain.java" />
+    <Content Include="lib\PennNLP\nlpy\LTLBroom\JTLV\GROne\GROneParser.java" />
+    <Content Include="lib\PennNLP\nlpy\LTLBroom\JTLV\jtlv-prompt1.4.0.jar" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\results.txt" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\accompany-51.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\acquiesce-95.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\addict-96.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\adjust-26.9.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\admire-31.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\admit-65.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\adopt-93.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\advise-37.9.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\allow-64.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\amalgamate-22.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\amuse-31.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\animal_sounds-38.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\appeal-31.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\appear-48.1.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\appoint-29.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\approve-77.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\assessment-34.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\assuming_position-50.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\avoid-52.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\banish-10.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\base-97.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\battle-36.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\be-111.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\beg-58.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\begin-55.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\being_dressed-41.3.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\bend-45.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\berry-13.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\bill-54.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\body_internal_motion-49.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\body_internal_states-40.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\braid-41.2.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\break-45.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\breathe-40.1.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\bring-11.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\build-26.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\bulge-47.5.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\bump-18.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\butter-9.9.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\calibratable_cos-45.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\calve-28.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\captain-29.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\care-88.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\carry-11.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\carve-21.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\change_bodily_state-40.8.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\characterize-29.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\chase-51.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cheat-10.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\chew-39.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\chit_chat-37.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\classify-29.10.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\clear-10.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cling-22.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\coil-9.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\coloring-24.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\complain-37.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\complete-55.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\comprehend-87.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\concealment-16.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\confess-37.10.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\confine-92.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\confront-98.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\conjecture-29.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\consider-29.9.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\conspire-71.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\consume-66.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\contiguous_location-47.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\continue-55.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\contribute-13.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\convert-26.6.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cooking-45.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cooperate-73.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cope-83.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\correlate-86.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\correspond-36.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cost-54.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\crane-40.3.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\create-26.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\curtsey-40.3.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\cut-21.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\debone-10.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\declare-29.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\dedicate-79.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\deduce-97.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\defend-85.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\defuse-110.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\destroy-44.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\devour-39.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\differ-23.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\dine-39.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\disappearance-48.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\disassemble-23.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\discover-84.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\dress-41.1.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\dressing_well-41.3.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\drive-11.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\dub-29.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\eat-39.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\empathize-88.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\enforce-63.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\engender-27.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\ensure-99.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\entity_specific_cos-45.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\entity_specific_modes_being-47.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\equip-13.4.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\escape-51.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\establish-55.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\estimate-34.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\exceed-90.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\exchange-13.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\exhale-40.1.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\exist-47.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\feeding-39.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\ferret-35.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\fill-9.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\fire-10.10.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\fit-54.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\flinch-40.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\floss-41.2.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\focus-87.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\forbid-67.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\force-59.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\free-80.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\fulfilling-13.4.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\funnel-9.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\future_having-13.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\get-13.5.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\give-13.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\gobble-39.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\gorge-39.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\groom-41.1.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\grow-26.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\help-72.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\herd-47.5.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hiccup-40.1.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hire-13.5.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hit-18.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hold-15.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hunt-35.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\hurt-40.8.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\illustrate-25.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\image_impression-25.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\indicate-78.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\inquire-37.1.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\instr_communication-37.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\interrogate-37.1.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\investigate-35.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\involve-107.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\judgement-33.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\keep-15.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\knead-26.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\learn-14.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\leave-51.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\lecture-37.11.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\light_emission-43.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\limit-76.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\linger-53.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\lodge-46.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\long-32.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\manner_speaking-37.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\marry-36.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\marvel-31.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\masquerade-29.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\matter-91.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\meander-47.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\meet-36.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\mine-10.9.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\mix-22.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\modes_of_being_with_motion-47.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\multiply-108.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\murder-42.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\neglect-75.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\nonvehicle-51.4.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\nonverbal_expression-40.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\obtain-13.5.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\occurrence-48.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\order-60.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\orphan-29.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\other_cos-45.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\overstate-37.12.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\own-100.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pain-40.8.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\patent-101.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pay-68.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\peer-30.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pelt-17.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\performance-26.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pit-10.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pocket-9.10.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\poison-42.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\poke-19.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\pour-9.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\preparing-26.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\price-54.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\promise-37.13.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\promote-102.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\push-12.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\put-9.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\put_direction-9.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\put_spatial-9.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\reach-51.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\README.txt" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\reflexive_appearance-48.1.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\refrain-69.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\register-54.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\rehearse-26.8.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\relate-86.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\rely-70.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\remove-10.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\require-103.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\resign-10.11.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\risk-94.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\roll-51.3.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\rummage-35.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\run-51.3.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\rush-53.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\say-37.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\scribble-25.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\search-35.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\see-30.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\seem-109.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\send-11.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\separate-23.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\settle-89.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\shake-22.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\sight-30.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\simple_dressing-41.3.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\slide-11.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\smell_emission-43.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\snooze-40.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\sound_emission-43.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\sound_existence-47.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\spank-18.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\spatial_configuration-47.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\spend_time-104.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\split-23.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\spray-9.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\stalk-35.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\steal-10.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\stimulus_subject-30.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\stop-55.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\subjugate-42.3.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\substance_emission-43.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\succeed-74.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\suffocate-40.7.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\suspect-81.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\sustain-55.6.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\swarm-47.5.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\swat-18.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\talk-37.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\tape-22.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\tell-37.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\throw-17.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\tingle-40.8.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\touch-20.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\transcribe-25.4.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\transfer_mesg-37.1.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\try-61.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\turn-26.6.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\urge-58.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\use-105.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\vehicle-51.4.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\void-106.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\waltz-51.5.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\want-32.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\weather-57.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\weekend-56.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\wink-40.3.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\wipe_instr-10.4.2.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\wipe_manner-10.4.1.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\wish-62.xml" />
+    <Content Include="lib\PennNLP\nlpy\Semantics\Verbnet\verbnet-3.1\withdraw-82.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
