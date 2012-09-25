@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubSimNLDemo", "SubSimNLDemo\SubSimNLDemo.csproj", "{24F4CB84-9160-4F98-995F-F0E5E4D8CF67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubSimProcessorNL", "SubSimNLProcessor\SubSimProcessorNL.csproj", "{07FC88ED-ACE1-429D-A5FF-D43976C0D5E5}"
