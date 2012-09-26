@@ -30,3 +30,4 @@ _ReSharper*/
 Backup
 UpgradeLog.XML
 _UpgradeReport*
+/SubSimNLProcessor/lib
