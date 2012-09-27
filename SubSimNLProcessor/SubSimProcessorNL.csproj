@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SubSimProcessorLanguage</RootNamespace>
     <AssemblyName>SubSimProcessorLanguage</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
     </StartupObject>
@@ -19,6 +19,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +29,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>C:\SS-RICS\SS-RICS SRC\Release\SubSimProcessorLanguage.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\SubSimNLDemo.XML\SubSimProcessorLanguage.XML</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,25 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="addnulls, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\PennNLP\addnulls\addnulls.dll</HintPath>
-    </Reference>
     <Reference Include="Brain, Version=1.1.9.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\SS-RICS\SS-RICS SRC\Release\Brain.dll</HintPath>
-    </Reference>
-    <Reference Include="dbparser, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\PennNLP\dbparser\dbparser.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Core, Version=0.46.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Remoting, Version=0.46.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Remoting.dll</HintPath>
+      <HintPath>..\..\..\..\..\SS-RICS 2010\release\Brain.dll</HintPath>
     </Reference>
     <Reference Include="IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,11 +69,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\IronPython 2.6\Microsoft.Scripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="OpenNLP, Version=1.0.4253.20523, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SS-RICSRobot, Version=1.0.4640.30757, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\SS-RICS\SharpNLP-1.0.2529-Src\OpenNLP\OpenNLP\bin\Release\OpenNLP.dll</HintPath>
+      <HintPath>..\..\..\..\..\SS-RICS 2010\release\SS-RICSRobot.dll</HintPath>
     </Reference>
-    <Reference Include="SS-RICSRobot, Version=1.0.4161.25036, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -1156,7 +1141,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) "C:\SS-RICS 2010\release\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

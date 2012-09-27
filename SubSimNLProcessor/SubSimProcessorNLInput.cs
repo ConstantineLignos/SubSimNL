@@ -24,11 +24,11 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Brain;
-using OpenNLP.Tools.Parser;
-using OpenNLP.Tools.Tokenize;
-using OpenNLP.Tools.PosTagger;
-using danbikel.parser;
-using edu.upenn.cis.emptycategories;
+//using OpenNLP.Tools.Parser;
+//using OpenNLP.Tools.Tokenize;
+//using OpenNLP.Tools.PosTagger;
+//using danbikel.parser;
+//using edu.upenn.cis.emptycategories;
 using SSRICSRobot;
 
 namespace SubSimProcessorLanguage
@@ -40,7 +40,7 @@ namespace SubSimProcessorLanguage
     {
         private static String sharpNLPPath = @"SharpNLP\";
         private static String pennNLPPath = @"PennNLP\";
-        private Parser dbParser;
+        //private Parser dbParser;
         static AutoResetEvent parserLoaded;
         static AutoResetEvent restorerLoaded;
 
@@ -49,8 +49,8 @@ namespace SubSimProcessorLanguage
         /// </summary>
         public Boolean standalone;
 
-        private EnglishMaximumEntropyTokenizer tokenizer;
-        private EnglishMaximumEntropyPosTagger tagger;
+        //private EnglishMaximumEntropyTokenizer tokenizer;
+        //private EnglishMaximumEntropyPosTagger tagger;
 
         private CBrain brain;
         private IRobot robot;
@@ -86,8 +86,8 @@ namespace SubSimProcessorLanguage
             restorerLoader.Start();
 
             // Load up other systems in the meantime
-            this.tokenizer = new EnglishMaximumEntropyTokenizer(sharpNLPPath + "EnglishTok.nbin");
-            this.tagger = new EnglishMaximumEntropyPosTagger(sharpNLPPath + "EnglishPOS.nbin", sharpNLPPath + @"\Parser\tagdict");
+            //this.tokenizer = null; new EnglishMaximumEntropyTokenizer(sharpNLPPath + "EnglishTok.nbin");
+            //this.tagger = null; new EnglishMaximumEntropyPosTagger(sharpNLPPath + "EnglishPOS.nbin", sharpNLPPath + @"\Parser\tagdict");
 
             // Make default goals
             GoalBuilder gotoGoal = new GoalBuilder("GotoX", brain);
@@ -214,6 +214,7 @@ namespace SubSimProcessorLanguage
 
         private void InitParser()
         {
+            /*
             dbParser = Parser.InitParser(new String[] {"-sf", pennNLPPath + @"dbparser\eatb3.properties", "-is", 
                 pennNLPPath + @"dbparser\wsjall.obj",  "-sa", "-", "-out", "-"});
 
@@ -229,22 +230,25 @@ namespace SubSimProcessorLanguage
             {
                 parserLoaded.Set();
             }
+             */
         }
 
         private void InitRestorer()
         {
+            /*
             RestoreECs.init(new String[] {"run", "--", "--perceptron", "--ante_perceptron", "--nptrace", "--whxp",
                 "--wh", "--whxpdiscern", "--nptraceante", "--noante", "--base:" + pennNLPPath + @"addnulls\"});
             restorerLoaded.Set();
+             */
         }
 
         internal String parse(string inputText)
         {
-            String[] tokens = tokenizer.Tokenize(inputText);
-            String[] tags = tagger.Tag(tokens);
-            String sent = CombineTags(tokens, tags);
-            String parse = dbParser.parse(sent);
-            String restoredParse = RestoreECs.processParse(parse);
+            //String[] tokens = tokenizer.Tokenize(inputText);
+            //String[] tags = tagger.Tag(tokens);
+            //String sent = CombineTags(tokens, tags);
+            String parse = "(S (NP (NN Test)))";
+            String restoredParse = "(S (NP (NN Test)))";  //RestoreECs.processParse(parse);
             return restoredParse;
         }
 

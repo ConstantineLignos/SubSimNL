@@ -19,7 +19,8 @@
  */
 
 using System;
-using System.Windows.Forms;
+using System.Windows;
+using Forms = System.Windows.Forms;
 using Brain;
 using SubSimProcessorLanguage;
 using SSRICSRobot;
@@ -37,8 +38,8 @@ namespace SubSimNLDemo
         static void Main()
         {
             // Forms boilerplate
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Forms.Application.EnableVisualStyles();
+            Forms.Application.SetCompatibleTextRenderingDefault(false);
 
             // Make a real brain if needed, dummy otherwise
             CBrain brain;
@@ -54,7 +55,22 @@ namespace SubSimNLDemo
 			    brain.useRemoteVoice = false;
 			    brain.voicePort = "";
                 brain.configFileName = @"C:\Users\Administrator\checkout\SubSimNL\SubSimNLDemo\BrainInterface.exe.config";
-                brain.Init(IntPtr.Zero, ""); 
+                while (true)
+                {
+                    try
+                    {
+                        brain.Init(IntPtr.Zero, "");
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxResult answer = MessageBox.Show(
+                            "MobileSim does not appear to be running. Would you like to try to connect to it again?", 
+                            "Cannot connect to MobileSim", MessageBoxButton.YesNo);
+                        if (answer.Equals(MessageBoxResult.No))
+                            Forms.Application.Exit();
+                    }
+                }
                 robot = brain.Robot;
             }
             else
