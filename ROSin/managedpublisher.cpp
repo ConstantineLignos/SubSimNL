@@ -16,8 +16,8 @@ using namespace System;
 using namespace msclr::interop;
 
 namespace ManagedROS {
-  void RosNode::RosInit(String^ nodename) {
-    RosNodeWrapper::RosInit(marshal_as<std::string>(nodename));
+  void ROSNode::ROSInit(String^ nodename) {
+    ROSNodeWrapper::ROSInit(marshal_as<std::string>(nodename));
   }
 
   Publisher::Publisher(String^ topic) {

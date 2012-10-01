@@ -55,6 +55,10 @@
       <Project>{9534BCD9-12A2-4517-9B28-2E3C36942C74}</Project>
       <Name>ManagedROS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ROSin\ROSin.vcxproj">
+      <Project>{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}</Project>
+      <Name>ROSin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

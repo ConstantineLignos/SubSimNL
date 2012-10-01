@@ -9,7 +9,7 @@
 // Many ROS_INFO macro triggers this warning
 #pragma warning(disable : 4127)
 
-void RosNodeWrapper::RosInit(std::string nodename) {
+void ROSNodeWrapper::ROSInit(std::string nodename) {
   // Give ROS an empty mapping
   std::map<std::string, std::string> mapping;
   ros::init(mapping, nodename);
@@ -32,8 +32,8 @@ void PublisherWrapper::Publish(std::string data) {
 
 /*
 int main() {
-  // Init node and publisher. rosinit should always be called from your main.
-  RosInit("testnode");
+  // Init node and publisher. ROSInit should always be called from your main.
+  ROSInit("testnode");
   PublisherWrapper p("testtopic");
 
   int count = 0;

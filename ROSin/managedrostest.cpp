@@ -9,7 +9,7 @@ using namespace ManagedROS;
 int main(array<System::String ^> ^args)
 {
   // Init and let things settle
-  RosNode::RosInit("testnode");
+  ROSNode::ROSInit("testnode");
   Publisher pub("testtopic");
   Thread::Sleep(5000);
 

@@ -6,9 +6,9 @@
 using namespace System;
 
 namespace ManagedROS {
-  public ref class RosNode {
+  public ref class ROSNode {
   public:
-    static void RosInit(String^);
+    static void ROSInit(String^);
   };
 
   public ref class Publisher {

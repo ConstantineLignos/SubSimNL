@@ -13,16 +13,17 @@ namespace ROSTest
         static void Main(string[] args)
         {
             string nodeName = "test_node";
-            RosNode.RosInit(nodeName);
+            ROSNode.ROSInit(nodeName);
             Thread.Sleep(5000);
 
             string topic = "test_topic";
             Publisher p = new Publisher(topic);
 
-            for (int i = 0; i < 100; i++)
+            int i = 0;
+            while (true)
             {
-                p.Publish("Test message " + i);
-                Thread.Sleep(1000);
+                p.Publish("Test message " + i++);
+                Thread.Sleep(5);
             }
         }
     }

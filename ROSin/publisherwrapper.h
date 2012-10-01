@@ -4,9 +4,9 @@
 #include <string>
 #include <ros\ros.h>
 
-class RosNodeWrapper {
+class ROSNodeWrapper {
 public:
-  static void RosInit(std::string);
+  static void ROSInit(std::string);
 };
 
 class PublisherWrapper {

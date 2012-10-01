@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROSTest", "ROSTest\ROSTest.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ManagedROS", "ManagedROS\ManagedROS.vcxproj", "{9534BCD9-12A2-4517-9B28-2E3C36942C74}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnmanagedROS", "UnmanagedROS\UnmanagedROS.vcxproj", "{E5CEC3F8-DE34-465C-9E34-979EA018513C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ROSin", "ROSin\ROSin.vcxproj", "{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,24 +102,24 @@ Global
 		{9534BCD9-12A2-4517-9B28-2E3C36942C74}.ReleaseWithDebugSymbol|Win32.ActiveCfg = ReleaseWithDebugSymbol|Win32
 		{9534BCD9-12A2-4517-9B28-2E3C36942C74}.ReleaseWithDebugSymbol|Win32.Build.0 = ReleaseWithDebugSymbol|Win32
 		{9534BCD9-12A2-4517-9B28-2E3C36942C74}.ReleaseWithDebugSymbol|x86.ActiveCfg = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|Any CPU.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|Mixed Platforms.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|Mixed Platforms.Build.0 = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|Win32.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|Win32.Build.0 = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Debug|x86.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|Any CPU.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|Win32.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|Win32.Build.0 = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.Release|x86.ActiveCfg = Release|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|Any CPU.ActiveCfg = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|Mixed Platforms.ActiveCfg = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|Mixed Platforms.Build.0 = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|Win32.ActiveCfg = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|Win32.Build.0 = ReleaseWithDebugSymbol|Win32
-		{E5CEC3F8-DE34-465C-9E34-979EA018513C}.ReleaseWithDebugSymbol|x86.ActiveCfg = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|Any CPU.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|Mixed Platforms.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|Mixed Platforms.Build.0 = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|Win32.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|Win32.Build.0 = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Debug|x86.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|Win32.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|Win32.Build.0 = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.Release|x86.ActiveCfg = Release|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|Any CPU.ActiveCfg = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|Mixed Platforms.ActiveCfg = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|Mixed Platforms.Build.0 = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|Win32.ActiveCfg = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|Win32.Build.0 = ReleaseWithDebugSymbol|Win32
+		{EEA3C2B0-F88E-4CD0-89BB-8CBA930F4770}.ReleaseWithDebugSymbol|x86.ActiveCfg = ReleaseWithDebugSymbol|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
