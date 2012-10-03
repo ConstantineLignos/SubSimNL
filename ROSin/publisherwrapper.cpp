@@ -1,15 +1,13 @@
 #include "stdafx.h"
-#include <string>
 #include <iostream>
 #include <sstream>
-#include <ros/ros.h>
 #include <std_msgs/String.h>
 #include "publisherwrapper.h"
 
 // Many ROS_INFO macro triggers this warning
 #pragma warning(disable : 4127)
 
-void ROSNodeWrapper::ROSInit(std::string nodename) {
+void ROSNodeWrapper::RosInit(std::string nodename) {
   // Give ROS an empty mapping
   std::map<std::string, std::string> mapping;
   ros::init(mapping, nodename);

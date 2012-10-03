@@ -7,9 +7,7 @@
 
 #include "targetver.h"
 
-#include <stdio.h>
-#include <tchar.h>
-
-
-
-// TODO: reference additional headers your program requires here
+#include <string>
+#include <msclr\marshal_cppstd.h>
+#include <ros\ros.h>
+#include <std_msgs\String.h>

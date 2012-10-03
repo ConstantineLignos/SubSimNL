@@ -6,7 +6,7 @@ using namespace System::Threading;
 
 using namespace ManagedROS;
 
-int main(array<System::String ^> ^args)
+int test_managed_ros(array<System::String ^> ^args)
 {
   // Init and let things settle
   ROSNode::ROSInit("testnode");

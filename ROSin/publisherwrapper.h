@@ -6,7 +6,7 @@
 
 class ROSNodeWrapper {
 public:
-  static void ROSInit(std::string);
+  static void RosInit(std::string);
 };
 
 class PublisherWrapper {
