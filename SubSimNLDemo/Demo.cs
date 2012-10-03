@@ -20,10 +20,12 @@
 
 using System;
 using System.Windows;
+using System.Threading;
 using Forms = System.Windows.Forms;
 using Brain;
 using SubSimProcessorLanguage;
 using SSRICSRobot;
+using rosin;
 
 namespace SubSimNLDemo
 {
@@ -41,49 +43,46 @@ namespace SubSimNLDemo
             Forms.Application.EnableVisualStyles();
             Forms.Application.SetCompatibleTextRenderingDefault(false);
 
+            // Init ROS
+            rosin.RosNode.RosInit("SubSimNLDemo");
+
             // Make a real brain if needed, dummy otherwise
             CBrain brain;
-            IRobot robot;
+            IRobot robot = null;
             if (INIT_BRAIN)
             {            
                 brain = new CBrain();
-			    brain.simulatorMapFile = "";
-			    brain.simulatorType = "MobileSim";
-			    brain.robotHostName = "";
-			    brain.cameraPort = "";
-			    brain.useCamera = false;
-			    brain.useRemoteVoice = false;
-			    brain.voicePort = "";
+                brain.simulatorMapFile = "";
+                brain.simulatorType = "MobileSim";
+                brain.robotHostName = "";
+                brain.cameraPort = "";
+                brain.useCamera = false;
+                brain.useRemoteVoice = false;
+                brain.voicePort = "";
                 brain.configFileName = @"C:\Users\Administrator\checkout\SubSimNL\SubSimNLDemo\BrainInterface.exe.config";
-                while (true)
+                try
                 {
-                    try
-                    {
-                        brain.Init(IntPtr.Zero, "");
-                        break;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBoxResult answer = MessageBox.Show(
-                            "MobileSim does not appear to be running. Would you like to try to connect to it again?", 
-                            "Cannot connect to MobileSim", MessageBoxButton.YesNo);
-                        if (answer.Equals(MessageBoxResult.No))
-                            Forms.Application.Exit();
-                    }
+                    brain.Init(IntPtr.Zero, "");
+                    robot = brain.Robot;
                 }
-                robot = brain.Robot;
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    Forms.Application.Exit();
+                }
+
+                // TODO: it's possible we'll have problems with the ros::init going out of scope here
             }
             else
             {
                 brain = null;
                 robot = null;
-            }
 
-            // Start the subsim
-            CSubSimProcessorLanguage nlInput = new CSubSimProcessorLanguage(brain);
-            nlInput.standalone = true;
-            nlInput.Init(brain, robot);
-            nlInput.Run();
+                // Start the subsim ourselves
+                CSubSimProcessorLanguage nlInput = new CSubSimProcessorLanguage(brain);
+                nlInput.Init(brain, robot);
+                nlInput.RunStandalone();
+            }
         }
     }
 }

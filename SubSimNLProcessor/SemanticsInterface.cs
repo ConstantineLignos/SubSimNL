@@ -20,44 +20,27 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
-using IronPython.Hosting;
-using Microsoft.Scripting.Hosting;
-using Microsoft.Scripting;
-using IronPython.Runtime;
 
 namespace SubSimProcessorLanguage
 {
     public class SemanticsInterface
     {
-        private ScriptEngine pyEng;
-        private ScriptScope scope;
-        private ScriptSource semanticsInterface;
-        private object processTreeFunc;
 
         public SemanticsInterface()
         {
-            // Create engine and scope
-            pyEng = IronPython.Hosting.Python.CreateEngine();
-            pyEng.SetSearchPaths(new List<String>(new String[] { @"IronPython 2.6\Lib", @"PennNLP\nlpy" }));
-            scope = pyEng.CreateScope();
 
-            // Load interface
-            semanticsInterface = pyEng.CreateScriptSourceFromFile(@"semantics_interface.py");
-            semanticsInterface.Execute(scope);
-            processTreeFunc = scope.GetVariable("process_tree");
         }
 
-        public SemanticsResponse Parse(string tree, string text)
+        public SemanticsResponse Parse(String tree, String text)
         {
-            PythonTuple result = (PythonTuple) pyEng.Operations.Invoke(processTreeFunc, new Object[] { tree, text });
-            SemanticsResponse sr = ParseSemanticsResult(result);
+            // TODO Fix arguments
+            // PythonTuple result = (PythonTuple) pyEng.Operations.Invoke(processTreeFunc, new Object[] { tree, text });
+            SemanticsResponse sr = ParseSemanticsResult(tree);
             return sr;
         }
-
-        private static SemanticsResponse ParseSemanticsResult(PythonTuple result)
+        
+        private static SemanticsResponse ParseSemanticsResult(String result)
         {
             // Convert the commands into C# types
             List<Command> commands = new List<Command>();
@@ -65,11 +48,14 @@ namespace SubSimProcessorLanguage
             List<List<String>> targets = new List<List<String>>();
 
             // First parse the verbs and targets out
+            // TODO Support string argument
+            /*
             foreach (PythonTuple command in (List) result[1]) 
             {
                 verbs.Add((String) command[0]);
                 targets.Add(ConvertList<String>((List) command[1]));
             }
+            */
 
             // Then combine them into commands
             for (int i = 0; i < verbs.Count; i++)
@@ -78,19 +64,10 @@ namespace SubSimProcessorLanguage
             } 
 
             // Make a response
-            SemanticsResponse sr = new SemanticsResponse((String) result[0], commands.ToArray());
+            // TODO Update first arg
+            SemanticsResponse sr = new SemanticsResponse(result, commands.ToArray());
 
             return sr;
-        }
-
-        private static List<T> ConvertList<T>(List list)
-        {
-            List<T> convertedList = new List<T>();
-            foreach (T item in list)
-            {
-                convertedList.Add(item);
-            }
-            return convertedList;
         }
     }
 

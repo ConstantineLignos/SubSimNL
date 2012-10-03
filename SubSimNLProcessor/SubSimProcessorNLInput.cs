@@ -20,15 +20,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Brain;
-//using OpenNLP.Tools.Parser;
-//using OpenNLP.Tools.Tokenize;
-//using OpenNLP.Tools.PosTagger;
-//using danbikel.parser;
-//using edu.upenn.cis.emptycategories;
+using rosin;
 using SSRICSRobot;
 
 namespace SubSimProcessorLanguage
@@ -38,24 +33,18 @@ namespace SubSimProcessorLanguage
     /// </summary>
     public class CSubSimProcessorLanguage : CSubSimProcessor
     {
-        private static String sharpNLPPath = @"SharpNLP\";
-        private static String pennNLPPath = @"PennNLP\";
-        //private Parser dbParser;
-        static AutoResetEvent parserLoaded;
-        static AutoResetEvent restorerLoaded;
-
         /// <summary>
-        /// Whether we should run a standalone UI. Set to true if we are running without the BrainInterface.
+        /// Whether we should run a standalone UI.
         /// </summary>
         public Boolean standalone;
-
-        //private EnglishMaximumEntropyTokenizer tokenizer;
-        //private EnglishMaximumEntropyPosTagger tagger;
 
         private CBrain brain;
         private IRobot robot;
         private GoalBuilder failureGoal;
+        private RosNode node;
+        private ServiceClient pipelineClient;
         private SemanticsInterface semantics;
+        private Form nlForm;
 
         /// <summary>
         /// Initializes a new instance of the CSubSimProcessorLanguage class.
@@ -65,10 +54,11 @@ namespace SubSimProcessorLanguage
             : base(brain)
         {
             standalone = false;
+            node = null;
         }
 
         /// <summary>
-        /// Create a parser and default goals.
+        /// Create default goals.
         /// </summary>
         /// <param name="brain">The brain</param>
         /// <param name="robot">The robot</param>
@@ -76,18 +66,6 @@ namespace SubSimProcessorLanguage
         {
             this.brain = brain;
             this.robot = robot;
-
-            // Load external NLP systems in their own threads
-            restorerLoaded = new AutoResetEvent(false);
-            parserLoaded = new AutoResetEvent(false);
-            Thread parserLoader = new Thread(InitParser);
-            Thread restorerLoader = new Thread(InitRestorer);
-            parserLoader.Start();
-            restorerLoader.Start();
-
-            // Load up other systems in the meantime
-            //this.tokenizer = null; new EnglishMaximumEntropyTokenizer(sharpNLPPath + "EnglishTok.nbin");
-            //this.tagger = null; new EnglishMaximumEntropyPosTagger(sharpNLPPath + "EnglishPOS.nbin", sharpNLPPath + @"\Parser\tagdict");
 
             // Make default goals
             GoalBuilder gotoGoal = new GoalBuilder("GotoX", brain);
@@ -127,10 +105,9 @@ namespace SubSimProcessorLanguage
             dontKnowGoal.AddConsequent(ruleIndex, "Quit", "");
             dontKnowGoal.Commit();
 
-            // Wait for all systems to finish loading
-            restorerLoaded.WaitOne();
-            parserLoaded.WaitOne();
-            this.semantics = new SemanticsInterface();
+            // Set up the ROS interface
+            node = new RosNode();
+            pipelineClient = new ServiceClient(node, "upenn_nlp_pipeline_service");
         }
 
         /// <summary>
@@ -138,16 +115,23 @@ namespace SubSimProcessorLanguage
         /// </summary>
         public override void Run()
         {
-            // Open the form, using a blocking call if we are a standalone
-            Form nlForm = new NLInputForm(this);
-            if (standalone)
-            {
-                nlForm.ShowDialog();
-            }
-            else
-            {
-                nlForm.Show();
-            }
+            // Show the window in a background thread
+            // TODO: This may not be the best idea for the brain interface UI, but
+            // it works for now.
+            Thread uiThread = new Thread(new ThreadStart(ShowBackgroundForm));
+            uiThread.IsBackground = false;
+            uiThread.Name = "SumSimNL UI";
+            uiThread.SetApartmentState(ApartmentState.STA);
+            uiThread.Start();
+        }
+
+        /// <summary>
+        /// Start up the NL input form and block on the UI.
+        /// </summary>
+        public void RunStandalone()
+        {
+            nlForm = new NLInputForm(this);
+            nlForm.ShowDialog();
         }
 
         /// <summary>
@@ -176,11 +160,6 @@ namespace SubSimProcessorLanguage
         public override bool AttendTo(CFact fact)
         {
             return false;
-        }
-
-        internal SemanticsResponse ParseSemantics(string inputParse, string inputText)
-        {
-            return semantics.Parse(inputParse, inputText);
         }
 
         /// <summary>
@@ -212,64 +191,25 @@ namespace SubSimProcessorLanguage
             return recognizedText;
         }
 
-        private void InitParser()
+        /// <summary>
+        /// Process text using the NLP pipeline.
+        /// </summary>
+        internal String Parse(String text)
         {
-            /*
-            dbParser = Parser.InitParser(new String[] {"-sf", pennNLPPath + @"dbparser\eatb3.properties", "-is", 
-                pennNLPPath + @"dbparser\wsjall.obj",  "-sa", "-", "-out", "-"});
-
-            if (dbParser == null)
-            {
-                // TODO Investigate this further
-                // Try it again until it works!
-                // This is to work around a seemingly random bug on loading, that has never happened
-                // twice in a row
-                InitParser();
-            }
-            else
-            {
-                parserLoaded.Set();
-            }
-             */
+            return pipelineClient.call(text);
         }
 
-        private void InitRestorer()
+        /// <summary>
+        /// Process a parse using the semantics interface.
+        /// </summary>
+        internal SemanticsResponse AnalyzeSemantics(String parse, String text)
         {
-            /*
-            RestoreECs.init(new String[] {"run", "--", "--perceptron", "--ante_perceptron", "--nptrace", "--whxp",
-                "--wh", "--whxpdiscern", "--nptraceante", "--noante", "--base:" + pennNLPPath + @"addnulls\"});
-            restorerLoaded.Set();
-             */
-        }
-
-        internal String parse(string inputText)
-        {
-            //String[] tokens = tokenizer.Tokenize(inputText);
-            //String[] tags = tagger.Tag(tokens);
-            //String sent = CombineTags(tokens, tags);
-            String parse = "(S (NP (NN Test)))";
-            String restoredParse = "(S (NP (NN Test)))";  //RestoreECs.processParse(parse);
-            return restoredParse;
-        }
-
-        private static String CombineTags(String[] tokens, String[] tags)
-        {
-            StringBuilder combined = new StringBuilder("(");
-            for (int i = 0; i < tokens.Length; i++)
-            {
-                String tok = tokens[i];
-                String tag = tags[i];
-                combined.Append("(" + tok + "(" + tag + "))");
-            }
-            combined.Append(")");
-            return combined.ToString();
+            return semantics.Parse(parse, text);
         }
 
         /// <summary>
         /// Process a semantic representation, executing any goals it creates.
         /// </summary>
-        /// <param name="inputParse">Parse to process</param>
-        /// <param name="inputText">Text that generated the parse</param>
         internal void ProcessSemantics(SemanticsResponse semantics)
         {
             try
@@ -310,6 +250,12 @@ namespace SubSimProcessorLanguage
             {
                 // Do nothing if we fail to add a new goal
             }
+        }
+
+        private void ShowBackgroundForm()
+        {
+            nlForm = new NLInputForm(this);
+            nlForm.ShowDialog();
         }
     }
 }

@@ -20,8 +20,8 @@
 
 using System.Drawing;
 using Netron.Lithium;
-//using OpenNLP.Tools.Parser;
-//using OpenNLP.Tools.Util;
+using OpenNLP.Tools.Parser;
+using OpenNLP.Tools.Util;
 
 namespace SubSimProcessorLanguage
 {
@@ -41,7 +41,6 @@ namespace SubSimProcessorLanguage
             lithiumControl = control;
         }
 
-        /*
         private void AddChildNodes(ShapeBase currentShape, Parse[] childParses)
         {
             foreach (Parse childParse in childParses)
@@ -94,6 +93,5 @@ namespace SubSimProcessorLanguage
 
             this.lithiumControl.DrawTree();
         }
-         */
     }
 }

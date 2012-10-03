@@ -20,7 +20,7 @@
 
 using System;
 using System.Windows.Forms;
-//using OpenNLP.Tools.Parser;
+using OpenNLP.Tools.Parser;
 
 namespace SubSimProcessorLanguage
 {
@@ -48,15 +48,16 @@ namespace SubSimProcessorLanguage
             this.Cursor = Cursors.WaitCursor;
 
             // Get the input text and call the parser on it
-            string inputText = inputTextBox.Text;
-            string inputParse = nlProcessor.parse(inputText);
-            /* Parse convertedInputParse = Parse.FromParseString(inputParse); 
+            String inputText = inputTextBox.Text;
+
+            String inputParse = nlProcessor.Parse(inputText);
+            Parse convertedInputParse = Parse.FromParseString(inputParse); 
 
             // Show the parse
-            viewer.ShowParse(convertedInputParse); */
+            viewer.ShowParse(convertedInputParse);
 
             // Get and write out the semantics
-            SemanticsResponse semantics = nlProcessor.ParseSemantics(inputParse, inputText);
+            SemanticsResponse semantics = nlProcessor.AnalyzeSemantics(inputParse, inputText);
             semanticsTextBox.Text = semantics.ToString();
 
             // Create goals from the semantics
