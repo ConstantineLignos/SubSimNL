@@ -21,52 +21,63 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.IO;
+using rosin;
 
 namespace SubSimProcessorLanguage
 {
     public class SemanticsInterface
     {
+        private RosNode node;
+        private ServiceClient semanticsClient;
+        private DataContractJsonSerializer requestSerializer;
+        private DataContractJsonSerializer responseSerializer;
 
         public SemanticsInterface()
         {
-
+            node = new RosNode();
+            semanticsClient = new ServiceClient(node, "upenn_nlp_semantics_service");
+            requestSerializer = new DataContractJsonSerializer(typeof(SemanticsServiceRequest));
+            responseSerializer = new DataContractJsonSerializer(typeof(SemanticsServiceResponse));
         }
 
         public SemanticsResponse Parse(String tree, String text)
         {
-            // TODO Fix arguments
-            // PythonTuple result = (PythonTuple) pyEng.Operations.Invoke(processTreeFunc, new Object[] { tree, text });
-            SemanticsResponse sr = ParseSemanticsResult(tree);
+            // Serialize the request and call
+            SemanticsServiceRequest request = new SemanticsServiceRequest();
+            request.tree = tree;
+            request.text = text;
+            MemoryStream requestStream = new MemoryStream();
+            requestSerializer.WriteObject(requestStream, request);
+            String jsonResult = semanticsClient.call(Encoding.ASCII.GetString(requestStream.ToArray()));
+
+            // Deserialize the response
+            MemoryStream responseStream = new MemoryStream(Encoding.ASCII.GetBytes(jsonResult));
+            responseStream.Position = 0;
+            SemanticsServiceResponse response = (SemanticsServiceResponse) responseSerializer.ReadObject(responseStream);
+
+            SemanticsResponse sr = ParseSemanticsResult(response);
             return sr;
         }
-        
-        private static SemanticsResponse ParseSemanticsResult(String result)
+
+        private static SemanticsResponse ParseSemanticsResult(SemanticsServiceResponse result)
         {
             // Convert the commands into C# types
             List<Command> commands = new List<Command>();
             List<String> verbs = new List<string>();
-            List<List<String>> targets = new List<List<String>>();
+            List<String> targets = new List<String>();
 
             // First parse the verbs and targets out
-            // TODO Support string argument
-            /*
-            foreach (PythonTuple command in (List) result[1]) 
+            foreach (ComplexCommand command in result.commands) 
             {
-                verbs.Add((String) command[0]);
-                targets.Add(ConvertList<String>((List) command[1]));
-            }
-            */
+                commands.Add(new Command(command.command, command.location));
 
-            // Then combine them into commands
-            for (int i = 0; i < verbs.Count; i++)
-            {
-                commands.Add(new Command(verbs[i], targets[i].ToArray()));
-            } 
+            }
 
             // Make a response
-            // TODO Update first arg
-            SemanticsResponse sr = new SemanticsResponse(result, commands.ToArray());
-
+            SemanticsResponse sr = new SemanticsResponse(result.userResponse, commands.ToArray());
             return sr;
         }
     }
@@ -74,22 +85,18 @@ namespace SubSimProcessorLanguage
     public class Command
     {
         public String action;
-        public String[] targets;
+        public String target;
 
-        public Command(String action, String[] targets)
+        public Command(String action, String target)
         {
             this.action = action;
-            this.targets = targets;
+            this.target = target;
         }
 
         public override String ToString()
         {
-            StringBuilder targetString = new StringBuilder();
-            foreach (String t in targets)
-            {
-                targetString.Append(t);
-            }
-            return this.action + ": " + targetString.ToString();
+
+            return action + ": " + target;
         }
     }
 
@@ -113,8 +120,35 @@ namespace SubSimProcessorLanguage
                 output.AppendLine(c.ToString());
             }
             output.AppendLine();
+            output.AppendLine("Response:");
             output.AppendLine(answer);
             return output.ToString();
         }
+    }
+
+    public class SemanticsServiceRequest
+    {
+        public String tree { get; set; }
+        public String text { get; set; }
+    }
+
+    [DataContract]
+    public class SemanticsServiceResponse
+    {
+
+        [DataMember(Name = "user_response")]
+        public String userResponse { get; set; }
+        [DataMember(Name = "new_commands")]
+        public List<ComplexCommand> commands { get; set; }
+    }
+
+    [DataContract]
+    public class ComplexCommand
+    {
+        // TODO: Remove location hack
+        [DataMember(Name = "Command")]
+        public String command { get; set; }
+        [DataMember(Name = "Location")]
+        public String location { get; set; }
     }
 }

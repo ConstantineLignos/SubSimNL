@@ -62,7 +62,7 @@ namespace SubSimProcessorLanguage
         public static string ParseActionGoal(Command command, CBrain brain)
         {
             // If there's no target, give up
-            if (command.targets.Length == 0)
+            if (command.target == "")
             {
                 return null;
             }
@@ -71,7 +71,7 @@ namespace SubSimProcessorLanguage
             TransitiveAction consequent = new TransitiveAction();
             consequent.action = command.action;
             // TODO Expand to handle multiple targets
-            consequent.target = command.targets[0];
+            consequent.target = command.target;
             return AddGoal(antecedent, consequent, brain);
         }
 

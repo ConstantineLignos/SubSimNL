@@ -106,8 +106,10 @@ namespace SubSimProcessorLanguage
             dontKnowGoal.Commit();
 
             // Set up the ROS interface
+            RosNode.RosInit("SubSimNL");
             node = new RosNode();
             pipelineClient = new ServiceClient(node, "upenn_nlp_pipeline_service");
+            semantics = new SemanticsInterface();
         }
 
         /// <summary>
@@ -153,7 +155,7 @@ namespace SubSimProcessorLanguage
         }
 
         /// <summary>
-        /// Always return true.
+        /// Always return false when attending to facts, since we can't do that.
         /// </summary>
         /// <param name="fact">Fact to attend to</param>
         /// <returns>Always true</returns>
@@ -231,19 +233,10 @@ namespace SubSimProcessorLanguage
                     // Respond that we didn't understand it
                     productions.Add(failureGoal.Name);
                 }
-                else
+
+                foreach (String productionName in productions)
                 {
-                    foreach (String productionName in productions)
-                    {
-                        // Execute the goal by running it in a new production system in its own thread
-                        CProductionSystem prodSys = new CProductionSystem(brain, productionName);
-                        brain.ProductionSystemsOutput += prodSys.ProductionSystemOutput;
-                        Thread productionThread = new Thread(new ThreadStart(prodSys.Process));
-                        productionThread.Priority = ThreadPriority.BelowNormal;
-                        productionThread.Name = "NL SubSim Goal " + productionName;
-                        productionThread.IsBackground = true;
-                        productionThread.Start();
-                    }
+                    brain.RunGoal(productionName, false, true, true);
                 }
             }
             catch (GoalEditException)

@@ -51,17 +51,24 @@ namespace SubSimProcessorLanguage
             String inputText = inputTextBox.Text;
 
             String inputParse = nlProcessor.Parse(inputText);
-            Parse convertedInputParse = Parse.FromParseString(inputParse); 
+            Parse convertedInputParse = Parse.FromParseString(inputParse);
 
-            // Show the parse
-            viewer.ShowParse(convertedInputParse);
+            // Show the parse and process semantics
+            if (inputParse != "")
+            {
+                viewer.ShowParse(convertedInputParse);
 
-            // Get and write out the semantics
-            SemanticsResponse semantics = nlProcessor.AnalyzeSemantics(inputParse, inputText);
-            semanticsTextBox.Text = semantics.ToString();
+                // Get and write out the semantics
+                SemanticsResponse semantics = nlProcessor.AnalyzeSemantics(inputParse, inputText);
+                semanticsTextBox.Text = semantics.ToString();
 
-            // Create goals from the semantics
-            nlProcessor.ProcessSemantics(semantics);
+                // Create goals from the semantics
+                nlProcessor.ProcessSemantics(semantics);
+            }
+            else
+            {
+                semanticsTextBox.Text = "Could not communicate with parser.";
+            }
 
             // Restore the UI
             inputTextBox.Enabled = true;
